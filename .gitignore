@@ -1,0 +1,4 @@
+training-data/checkpoints*
+training-data/dev
+training-data/test
+training-data/train
