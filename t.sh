@@ -37,18 +37,18 @@ python3 DeepSpeech.py \
 
 # TRAIN A MODEL with augmentation
 python3 DeepSpeech.py \
---alphabet_config_path ../datasets/mozilla/alphabet.txt \
+--alphabet_config_path ../datasets/alphabet.txt \
 --checkpoint_dir ../datasets/checkpoints_512 \
---train_files   ../datasets/mozilla/clips/validated.csv \
---dev_files   ../datasets/mozilla/clips/my_dev.csv \
+--train_files   ../datasets/train/train.csv \
+--dev_files   ../datasets/dev/dev.csv \
 --automatic_mixed_precision=True \
 --train_cudnn \
 --dropout_rate 0.3 \
---learning_rate 0.0001 \
---train_batch_size 128 \
---dev_batch_size 128 \
+--learning_rate 0.001 \
+--train_batch_size 1 \
+--dev_batch_size 1 \
 --n_hidden 512 \
---epochs 7 \
+--epochs 5 \
 --data_aug_features_additive 0.2 \
 --augmentation_freq_and_time_masking \
 --augmentation_freq_and_time_masking_freq_mask_range 5 \
@@ -58,4 +58,5 @@ python3 DeepSpeech.py \
 --augmentation_pitch_and_tempo_scaling \
 --augmentation_pitch_and_tempo_scaling_min_pitch 0.9 \
 --augmentation_pitch_and_tempo_scaling_max_pitch 1.2 \
---augmentation_pitch_and_tempo_scaling_max_tempo 1.2
+--augmentation_pitch_and_tempo_scaling_max_tempo 1.2 \
+--export_dir=../datasets/models/
